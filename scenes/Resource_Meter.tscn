@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfcden2bam4jo"]
 
-[ext_resource type="Texture2D" uid="uid://b8sv3ocnqvd2s" path="res://assets/GUI Bars/health meter-02.png" id="1_igwjy"]
-[ext_resource type="Texture2D" uid="uid://ditk48ig2wqxx" path="res://assets/GUI Bars/health meter-03.png" id="2_8a3ls"]
+[ext_resource type="Texture2D" path="res://assets/GUI Bars/health meter-02.png" id="1_igwjy"]
+[ext_resource type="Texture2D" path="res://assets/GUI Bars/health meter-03.png" id="2_8a3ls"]
 
 [node name="resource_bar" type="TextureProgressBar"]
 offset_left = -6.0
