@@ -1,53 +1,53 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbjlvadecbwhj"]
+[gd_scene load_steps=15 format=3 uid="uid://ox7gu7ndq1uf"]
 
-[ext_resource type="Texture2D" uid="uid://vrvb8xljnp5y" path="res://assets/GUI Bars/speen.png" id="1_ii1n3"]
 [ext_resource type="Script" path="res://scripts/heart.gd" id="1_kkct5"]
+[ext_resource type="Texture2D" uid="uid://vrvb8xljnp5y" path="res://assets/Bat/speen.png" id="2_pgg0x"]
 [ext_resource type="AudioStream" uid="uid://b2xjiy5vgkyup" path="res://SFX/magical_1.ogg" id="3_ouoft"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ut8pb"]
-atlas = ExtResource("1_ii1n3")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jab8m"]
+atlas = ExtResource("2_pgg0x")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n2yqh"]
-atlas = ExtResource("1_ii1n3")
-region = Rect2(32, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft57a"]
+atlas = ExtResource("2_pgg0x")
+region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ejcmt"]
-atlas = ExtResource("1_ii1n3")
-region = Rect2(32, 32, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2f47"]
+atlas = ExtResource("2_pgg0x")
+region = Rect2(0, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gpeyg"]
-atlas = ExtResource("1_ii1n3")
-region = Rect2(32, 48, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_neoj5"]
+atlas = ExtResource("2_pgg0x")
+region = Rect2(0, 48, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k58ra"]
-atlas = ExtResource("1_ii1n3")
-region = Rect2(32, 64, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_us7wq"]
+atlas = ExtResource("2_pgg0x")
+region = Rect2(0, 64, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fqdxs"]
-atlas = ExtResource("1_ii1n3")
-region = Rect2(32, 80, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap6mc"]
+atlas = ExtResource("2_pgg0x")
+region = Rect2(0, 80, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0joyu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ut8pb")
+"texture": SubResource("AtlasTexture_jab8m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n2yqh")
+"texture": SubResource("AtlasTexture_ft57a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ejcmt")
+"texture": SubResource("AtlasTexture_s2f47")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gpeyg")
+"texture": SubResource("AtlasTexture_neoj5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k58ra")
+"texture": SubResource("AtlasTexture_us7wq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fqdxs")
+"texture": SubResource("AtlasTexture_ap6mc")
 }],
 "loop": true,
 "name": &"default",
