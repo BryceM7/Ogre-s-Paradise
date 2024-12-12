@@ -12,7 +12,7 @@ var damage: int = 2
 var energy = 100
 var maxEnergy = 100
 var rechargeEnergy = 10
-var energyRechargeTime = 2.5
+var energyRechargeTime = 1.75
 
 
 var health : int = 100 :

@@ -1,15 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://chl23sse3226y"]
+[gd_scene load_steps=16 format=3 uid="uid://chl23sse3226y"]
 
 [ext_resource type="Texture2D" uid="uid://023lyws6b8ea" path="res://assets/tiles/tileset.png" id="1_rcm8w"]
 [ext_resource type="Texture2D" uid="uid://b8m477qsfgmlt" path="res://assets/tiles/Wall Tiles.png" id="2_si0g5"]
-[ext_resource type="PackedScene" uid="uid://b83lxavorfbdm" path="res://scenes/player.tscn" id="3_c7nce"]
+[ext_resource type="PackedScene" uid="uid://2f5m5yvx1n14" path="res://scenes/player.tscn" id="3_c7nce"]
 [ext_resource type="PackedScene" uid="uid://cyvpf3umoirk1" path="res://scenes/slime.tscn" id="4_13vry"]
+[ext_resource type="PackedScene" path="res://scenes/HealthBar.tscn" id="4_wwn4x"]
 [ext_resource type="PackedScene" uid="uid://c3wduqbava3xs" path="res://scenes/rat.tscn" id="5_i2ee4"]
 [ext_resource type="PackedScene" uid="uid://crn5d7d0nfk5y" path="res://scenes/bat.tscn" id="6_flmyw"]
 [ext_resource type="PackedScene" uid="uid://bi6alakibd51r" path="res://scenes/teleporter.tscn" id="7_7815i"]
-[ext_resource type="PackedScene" uid="uid://cdt2c6j76n3pv" path="res://scenes/HealthBar.tscn" id="4_xx1jv"]
-[ext_resource type="PackedScene" uid="uid://eurbp1os4vay" path="res://scenes/audio_stream_player.tscn" id="7_2th0w"]
-[ext_resource type="PackedScene" uid="uid://ipd7adlssr6v" path="res://scenes/energy_display.tscn" id="8_o8oa7"]
+[ext_resource type="PackedScene" uid="uid://3ic6y7kra4bm" path="res://scenes/energy_display.tscn" id="9_6sx0c"]
+[ext_resource type="PackedScene" uid="uid://bu26wpy1g3usp" path="res://scenes/bear_trap.tscn" id="10_fi6b8"]
+[ext_resource type="PackedScene" uid="uid://cylhor7tdt60h" path="res://scenes/spike_trap.tscn" id="11_v4b4t"]
+[ext_resource type="PackedScene" uid="uid://cbjlvadecbwhj" path="res://scenes/heart.tscn" id="12_2cyc1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l3tah"]
 texture = ExtResource("1_rcm8w")
@@ -556,21 +558,15 @@ layer_3/tile_data = PackedInt32Array(-11206857, 458753, 28, -11141321, 458753, 2
 [node name="player" parent="." instance=ExtResource("3_c7nce")]
 position = Vector2(-20, 42)
 
-[node name="HealthBar" parent="player" instance=ExtResource("4_xx1jv")]
-unique_name_in_owner = true
-offset = Vector2(-550, -300)
-scale = Vector2(0.5, 0.5)
-transform = Transform2D(0.5, 0, 0, 0.5, -550, -300)
-follow_viewport_enabled = true
-
-[node name="playercamera" type="Camera2D" parent="player"]
-position = Vector2(67, -40)
-limit_left = 0
-limit_top = 0
-limit_right = 1152
-limit_bottom = 640
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(2.3, 2.3)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="HealthBar" parent="player" instance=ExtResource("4_wwn4x")]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 
 [node name="Rat" parent="." instance=ExtResource("5_i2ee4")]
 position = Vector2(-205, -17)
@@ -595,10 +591,138 @@ destination_y = -512
 position = Vector2(1344, -1069)
 destination_x = 352
 destination_y = -1504
-[node name="AudioStreamPlayer" parent="." instance=ExtResource("7_2th0w")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="energyDisplay" parent="CanvasLayer" instance=ExtResource("8_o8oa7")]
+[node name="energyDisplay" parent="CanvasLayer" instance=ExtResource("9_6sx0c")]
 unique_name_in_owner = true
 scale = Vector2(3, 3)
+
+[node name="bear_trap" parent="." instance=ExtResource("10_fi6b8")]
+position = Vector2(-151, -511)
+
+[node name="Bat2" parent="." instance=ExtResource("6_flmyw")]
+position = Vector2(-109, -529)
+
+[node name="Bat3" parent="." instance=ExtResource("6_flmyw")]
+position = Vector2(-166, -476)
+
+[node name="spikeTrap" parent="." instance=ExtResource("11_v4b4t")]
+position = Vector2(11, -503)
+
+[node name="slime2" parent="." instance=ExtResource("4_13vry")]
+position = Vector2(16, -532)
+
+[node name="slime3" parent="." instance=ExtResource("4_13vry")]
+position = Vector2(1196, -687)
+
+[node name="slime4" parent="." instance=ExtResource("4_13vry")]
+position = Vector2(977, -680)
+
+[node name="slime5" parent="." instance=ExtResource("4_13vry")]
+position = Vector2(1114, -803)
+
+[node name="slime6" parent="." instance=ExtResource("4_13vry")]
+position = Vector2(1500, -835)
+
+[node name="slime7" parent="." instance=ExtResource("4_13vry")]
+position = Vector2(1462, -695)
+
+[node name="slime8" parent="." instance=ExtResource("4_13vry")]
+position = Vector2(1734, -727)
+
+[node name="Rat2" parent="." instance=ExtResource("5_i2ee4")]
+position = Vector2(1289, -745)
+
+[node name="Rat3" parent="." instance=ExtResource("5_i2ee4")]
+position = Vector2(977, -1064)
+
+[node name="Rat4" parent="." instance=ExtResource("5_i2ee4")]
+position = Vector2(960, -856)
+
+[node name="Rat5" parent="." instance=ExtResource("5_i2ee4")]
+position = Vector2(1701, -1027)
+
+[node name="Rat6" parent="." instance=ExtResource("5_i2ee4")]
+position = Vector2(1413, -943)
+
+[node name="Bat4" parent="." instance=ExtResource("6_flmyw")]
+position = Vector2(1109, -1054)
+
+[node name="Bat5" parent="." instance=ExtResource("6_flmyw")]
+position = Vector2(1246, -844)
+
+[node name="Bat6" parent="." instance=ExtResource("6_flmyw")]
+position = Vector2(1527, -999)
+
+[node name="Bat7" parent="." instance=ExtResource("6_flmyw")]
+position = Vector2(1621, -822)
+
+[node name="bear_trap2" parent="." instance=ExtResource("10_fi6b8")]
+position = Vector2(1264, -583)
+
+[node name="bear_trap3" parent="." instance=ExtResource("10_fi6b8")]
+position = Vector2(1393, -572)
+
+[node name="spikeTrap2" parent="." instance=ExtResource("11_v4b4t")]
+position = Vector2(1263, -1015)
+
+[node name="spikeTrap3" parent="." instance=ExtResource("11_v4b4t")]
+position = Vector2(1090, -910)
+
+[node name="spikeTrap4" parent="." instance=ExtResource("11_v4b4t")]
+position = Vector2(1645, -934)
+
+[node name="spikeTrap5" parent="." instance=ExtResource("11_v4b4t")]
+position = Vector2(1569, -709)
+
+[node name="spikeTrap6" parent="." instance=ExtResource("11_v4b4t")]
+position = Vector2(1370, -840)
+
+[node name="Bat8" parent="." instance=ExtResource("6_flmyw")]
+position = Vector2(316, -1640)
+
+[node name="Bat9" parent="." instance=ExtResource("6_flmyw")]
+position = Vector2(409, -1636)
+
+[node name="Bat10" parent="." instance=ExtResource("6_flmyw")]
+position = Vector2(357, -1595)
+
+[node name="Bat11" parent="." instance=ExtResource("6_flmyw")]
+position = Vector2(310, -1546)
+
+[node name="Bat12" parent="." instance=ExtResource("6_flmyw")]
+position = Vector2(408, -1549)
+
+[node name="Rat7" parent="." instance=ExtResource("5_i2ee4")]
+position = Vector2(357, -1537)
+
+[node name="Rat8" parent="." instance=ExtResource("5_i2ee4")]
+position = Vector2(312, -1581)
+
+[node name="Rat9" parent="." instance=ExtResource("5_i2ee4")]
+position = Vector2(404, -1590)
+
+[node name="Rat10" parent="." instance=ExtResource("5_i2ee4")]
+position = Vector2(332, -1662)
+
+[node name="Heart" parent="." instance=ExtResource("12_2cyc1")]
+position = Vector2(1015, -960)
+
+[node name="Heart2" parent="." instance=ExtResource("12_2cyc1")]
+position = Vector2(1429, -1061)
+
+[node name="Heart3" parent="." instance=ExtResource("12_2cyc1")]
+position = Vector2(1418, -768)
+
+[node name="Heart4" parent="." instance=ExtResource("12_2cyc1")]
+position = Vector2(1083, -712)
+
+[node name="Heart5" parent="." instance=ExtResource("12_2cyc1")]
+position = Vector2(1737, -903)
+
+[node name="Heart6" parent="." instance=ExtResource("12_2cyc1")]
+position = Vector2(-54, -499)
+
+[node name="Heart7" parent="." instance=ExtResource("12_2cyc1")]
+position = Vector2(95, -36)
