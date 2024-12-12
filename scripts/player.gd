@@ -3,21 +3,20 @@ class_name Player
 
 @onready var healthBar : UI = %HealthBar
 @onready var timer : Timer = $DeathTimer
+@onready var animations : AnimatedSprite2D = $AnimatedSprite2D
+@onready var energyDisplay = %energyDisplay
+@onready var energyRechargeTimer = $energyRechargeTimer
 
-var is_dying = false
+var speed: int = 100
+var damage: int = 2
+var energy = 100
+var maxEnergy = 100
+var rechargeEnergy = 10
+var energyRechargeTime = 2.5
 
 
-enum Directions {UP, DOWN, LEFT, RIGHT}
-
-@export var speed: int = 100
-@export var damage: int = 2
-
-var isAttacking = false
-var direction: Vector2 = Vector2.ZERO
-var facing : Directions = Directions.DOWN
 var health : int = 100 :
 	set(value):
-		print(value)
 		health = value
 		if healthBar != null:
 			healthBar.set_health(value)
@@ -27,8 +26,13 @@ var health : int = 100 :
 			if (timer.time_left == 0):
 				timer.start()
 
+enum Directions {UP, DOWN, LEFT, RIGHT}
 
-@onready var animations : AnimatedSprite2D = $AnimatedSprite2D
+var isAttacking = false
+var direction: Vector2 = Vector2.ZERO
+var facing : Directions = Directions.DOWN
+var is_dying = false
+
 
 var leftArea: Array = []
 var rightArea: Array = []
@@ -66,6 +70,7 @@ func _process(_delta):
 			animations.play("idle_up")
 	#Attack Update
 	if Input.is_action_just_pressed("attack"):
+		if energy - 10 >= 0:
 			isAttacking = true
 			if facing == Directions.LEFT && isAttacking == true:
 				animations.play("attack_left")
@@ -79,6 +84,14 @@ func _process(_delta):
 			elif facing == Directions.UP && isAttacking == true:
 				animations.play("attack_up")
 				attack("up")
+
+	if speed == 150:
+		if energy - 1 < 0:
+			speed = 100
+		else:
+			energy -= 20 * _delta
+			energyDisplay.update(energy, maxEnergy)
+
 
 
 func _physics_process(_delta):
@@ -100,6 +113,8 @@ func _on_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 #attacking functoin
 func attack(attackDirection):
+	energy -= 10
+	energyDisplay.update(energy, maxEnergy)
 	if attackDirection == "left":
 		for enemyBody in leftArea:
 			enemyBody.get_parent().damaged(damage)
@@ -113,7 +128,7 @@ func attack(attackDirection):
 		for enemyBody in frontArea:
 			enemyBody.get_parent().damaged(damage)
 	SwordSFX.play()
-	
+
 
 #detects enemiees going in and out of attack range
 func _on_left_detection_body_exited(body:Node2D) -> void:
@@ -140,3 +155,11 @@ func _on_front_detection_body_exited(body:Node2D) -> void:
 func _on_front_detection_body_entered(body:Node2D) -> void:
 	if body.get_parent() is enemy:
 		frontArea.append(body)
+
+
+func _on_energy_recharge_timer_timeout() -> void:
+	if energy + rechargeEnergy < maxEnergy:
+		energy += rechargeEnergy
+	elif energy + rechargeEnergy >= maxEnergy:
+		energy = maxEnergy
+	energyDisplay.update(energy, maxEnergy)
