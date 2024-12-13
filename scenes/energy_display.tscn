@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://3ic6y7kra4bm"]
+[gd_scene load_steps=3 format=3 uid="uid://ipd7adlssr6v"]
 
 [ext_resource type="FontFile" uid="uid://bstyjexoj8vx7" path="res://assets/fonts/Pixica-Regular.ttf" id="1_4ap78"]
 [ext_resource type="Script" path="res://scripts/energy_display.gd" id="1_awprk"]

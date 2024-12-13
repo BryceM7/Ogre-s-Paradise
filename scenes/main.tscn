@@ -1,17 +1,19 @@
-[gd_scene load_steps=16 format=3 uid="uid://chl23sse3226y"]
+[gd_scene load_steps=13 format=3 uid="uid://chl23sse3226y"]
 
 [ext_resource type="Texture2D" uid="uid://023lyws6b8ea" path="res://assets/tiles/tileset.png" id="1_rcm8w"]
 [ext_resource type="Texture2D" uid="uid://b8m477qsfgmlt" path="res://assets/tiles/Wall Tiles.png" id="2_si0g5"]
-[ext_resource type="PackedScene" uid="uid://2f5m5yvx1n14" path="res://scenes/player.tscn" id="3_c7nce"]
+[ext_resource type="PackedScene" uid="uid://b83lxavorfbdm" path="res://scenes/player.tscn" id="3_c7nce"]
 [ext_resource type="PackedScene" uid="uid://cyvpf3umoirk1" path="res://scenes/slime.tscn" id="4_13vry"]
 [ext_resource type="PackedScene" path="res://scenes/HealthBar.tscn" id="4_wwn4x"]
-[ext_resource type="PackedScene" uid="uid://jr2c4eaj23se" path="res://scenes/rat.tscn" id="5_i2ee4"]
-[ext_resource type="PackedScene" uid="uid://crn5d7d0nfk5y" path="res://scenes/bat.tscn" id="6_flmyw"]
-[ext_resource type="PackedScene" uid="uid://bi6alakibd51r" path="res://scenes/teleporter.tscn" id="7_7815i"]
-[ext_resource type="PackedScene" uid="uid://3ic6y7kra4bm" path="res://scenes/energy_display.tscn" id="9_6sx0c"]
 [ext_resource type="PackedScene" uid="uid://bu26wpy1g3usp" path="res://scenes/bear_trap.tscn" id="10_fi6b8"]
 [ext_resource type="PackedScene" uid="uid://cylhor7tdt60h" path="res://scenes/spike_trap.tscn" id="11_v4b4t"]
 [ext_resource type="PackedScene" uid="uid://ox7gu7ndq1uf" path="res://scenes/heart.tscn" id="12_2cyc1"]
+[ext_resource type="PackedScene" uid="uid://c3wduqbava3xs" path="res://scenes/rat.tscn" id="5_i2ee4"]
+[ext_resource type="PackedScene" uid="uid://crn5d7d0nfk5y" path="res://scenes/bat.tscn" id="6_flmyw"]
+[ext_resource type="PackedScene" uid="uid://bi6alakibd51r" path="res://scenes/teleporter.tscn" id="7_7815i"]
+[ext_resource type="PackedScene" uid="uid://cdt2c6j76n3pv" path="res://scenes/HealthBar.tscn" id="4_xx1jv"]
+[ext_resource type="PackedScene" uid="uid://eurbp1os4vay" path="res://scenes/audio_stream_player.tscn" id="7_2th0w"]
+[ext_resource type="PackedScene" uid="uid://ipd7adlssr6v" path="res://scenes/energy_display.tscn" id="8_o8oa7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l3tah"]
 texture = ExtResource("1_rcm8w")
@@ -558,15 +560,21 @@ layer_3/tile_data = PackedInt32Array(-11206857, 458753, 28, -11141321, 458753, 2
 [node name="player" parent="." instance=ExtResource("3_c7nce")]
 position = Vector2(-20, 42)
 
-[node name="Camera2D" type="Camera2D" parent="player"]
-zoom = Vector2(2.3, 2.3)
+[node name="HealthBar" parent="player" instance=ExtResource("4_xx1jv")]
+unique_name_in_owner = true
+offset = Vector2(-550, -300)
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, -550, -300)
+follow_viewport_enabled = true
+
+[node name="playercamera" type="Camera2D" parent="player"]
+position = Vector2(67, -40)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 640
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
-
-[node name="HealthBar" parent="player" instance=ExtResource("4_wwn4x")]
-unique_name_in_owner = true
-scale = Vector2(0.5, 0.5)
-transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 
 [node name="Rat" parent="." instance=ExtResource("5_i2ee4")]
 position = Vector2(-205, -17)
@@ -591,10 +599,11 @@ destination_y = -512
 position = Vector2(1344, -1069)
 destination_x = 352
 destination_y = -1504
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("7_2th0w")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="energyDisplay" parent="CanvasLayer" instance=ExtResource("9_6sx0c")]
+[node name="energyDisplay" parent="CanvasLayer" instance=ExtResource("8_o8oa7")]
 unique_name_in_owner = true
 scale = Vector2(3, 3)
 
