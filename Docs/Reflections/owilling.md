@@ -10,11 +10,11 @@ You may organize your reflection folders however you'd like, but below I've prov
 More information about what is expected in each reflection is available in the project rubric.
 
 ---
-## [Ty Niemeier]
-### good start on player movements
+## Owen
+### Started on enemies a bat slime and rat
 
-### finished up player animations
+### finished up enemies and made traps
 
-### dealt with many merge conflicts and made a menu
+### made the player be able to kill enemies
 
-### Overall satisfied with the project and proud of me and my groups effort
+### Final Thoughts - loved the project but wish we could've added more

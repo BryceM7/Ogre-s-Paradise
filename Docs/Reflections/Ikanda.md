@@ -10,13 +10,11 @@ You may organize your reflection folders however you'd like, but below I've prov
 More information about what is expected in each reflection is available in the project rubric.
 
 ---
-## [Group Member 1]
+## [Inder]
 ### Sprint 1 amazing start of the sprint
 
 ### Sprint 2 did my background music
 
 ### Sprint 3 had some murge conflicts but got them fixed
-
-### Sprint 4 on track hoping for the best
 
 ### Final Thoughts overall good job guys

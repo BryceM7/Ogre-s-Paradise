@@ -10,11 +10,12 @@ You may organize your reflection folders however you'd like, but below I've prov
 More information about what is expected in each reflection is available in the project rubric.
 
 ---
-## [Ty Niemeier]
-### good start on player movements
+## Bryce Martin
+### Sprint 1 good start on player health
 
-### finished up player animations
+### Sprint 2 player health bar and take damage
 
-### dealt with many merge conflicts and made a menu
+### Sprint 3 damage animations and tuning
 
-### Overall satisfied with the project and proud of me and my groups effort
+
+### Final Thoughts satisfied with what we got in the time even though we wanted more not bad!
